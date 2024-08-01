@@ -74,7 +74,7 @@ public class Prueba {
             JOptionPane.showMessageDialog(null, "La placa ya está registrada. Intente con otra placa.");
             return;
         }
-
+        int zona= 0;
         String marca = JOptionPane.showInputDialog("Ingrese la marca del vehículo:");
         String color = JOptionPane.showInputDialog("Ingrese el color del vehículo:");
         String[] paquetes = {"Básico", "Regular", "Premium"};
@@ -83,7 +83,7 @@ public class Prueba {
 
         LocalDateTime fechaRecepcion = LocalDateTime.now();
 
-        Vehiculos vehiculo = new Vehiculos(nombreCliente, placa, marca, color, paquete, fechaRecepcion);
+        Vehiculos vehiculo = new Vehiculos(nombreCliente, placa, marca, zona, color, paquete, fechaRecepcion);
         lobby[cuentaVehiculos] = vehiculo;
         cuentaVehiculos++;
 
