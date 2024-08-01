@@ -22,18 +22,45 @@ public class Vehiculos {
         this.marca = marca;
         this.color = color;
         this.paquete = paquete;
-        //
+        //nuevo
         this.zona= zona;
         //
         this.fechaRecepcion = fechaRecepcion;
     }
+    //nuevo
 
     public String getPlaca() {
         return placa;
     }
-
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }
+    public String getMarca() {
+        return marca;
+    }
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
     public String getPaquete() {
         return paquete;
+    }
+    public void setPaquete(String paquete) {
+        this.paquete = paquete;
+    }
+    public String getZona() {
+        return zona;
+    }
+
+    public void setZona(String zona) {
+        this.zona = zona;
+    }
+    public String getFechaIngreso() {
+        return fechaIngreso;
+    }
+    //
+
+    public void setFechaIngreso(String fechaIngreso) {
+        this.fechaIngreso = fechaIngreso;
     }
 
     public void setFechaAspirado(LocalDateTime fechaAspirado) {
