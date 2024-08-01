@@ -10,6 +10,9 @@ public class Vehiculos {
     private String marca;
     private String color;
     private String paquete;
+    //nuevo
+    private String zona;
+    //
     private LocalDateTime fechaRecepcion;
     
 
