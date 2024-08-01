@@ -10,9 +10,6 @@ public class Vehiculos {
     private String marca;
     private String color;
     private String paquete;
-    //nuevo
-    private String zona;
-    //
     private LocalDateTime fechaRecepcion;
     
 
@@ -46,13 +43,6 @@ public class Vehiculos {
     }
     public void setPaquete(String paquete) {
         this.paquete = paquete;
-    }
-    public String getZona() {
-        return zona;
-    }
-
-    public void setZona(String zona) {
-        this.zona = zona;
     }
     public String getFechaIngreso() {
         return fechaIngreso;
