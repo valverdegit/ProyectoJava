@@ -16,12 +16,15 @@ public class Vehiculos {
     private LocalDateTime fechaRecepcion;
     
 
-    public Vehiculos(String nombreCliente, String placa, String marca, String color, String paquete, LocalDateTime fechaRecepcion) {
+    public Vehiculos(String nombreCliente, String placa, String marca, String color, String paquete, String zona, LocalDateTime fechaRecepcion) {
         this.nombreCliente = nombreCliente;
         this.placa = placa;
         this.marca = marca;
         this.color = color;
         this.paquete = paquete;
+        //
+        this.zona= zona;
+        //
         this.fechaRecepcion = fechaRecepcion;
     }
 
