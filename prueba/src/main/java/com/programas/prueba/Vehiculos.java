@@ -19,9 +19,6 @@ public class Vehiculos {
         this.marca = marca;
         this.color = color;
         this.paquete = paquete;
-        //nuevo
-        this.zona= zona;
-        //
         this.fechaRecepcion = fechaRecepcion;
     }
     //nuevo
