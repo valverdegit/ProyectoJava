@@ -49,7 +49,7 @@ public class Prueba {
                     retirarVehiculo();
                     break;
                 case "5":
-                    // Implementar función para reportes si es necesario
+                    reporteVehiculo();
                     break;
                 case "6":
                     contador += 1;
@@ -61,10 +61,92 @@ public class Prueba {
         }
     }
     public static void reporteVehiculo(){
-        
+        String[] opciones = {"Consultar Vehículos en Zona", "Distribución de Vehículos por Zona"};
+        int seleccion = JOptionPane.showOptionDialog(null, "Seleccione una opción", "Sistema de Lavado",
+                JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opciones, opciones[0]);
 
+        if (seleccion == 0) {
+            consultarVehiculosEnZona();
+        } else if (seleccion == 1) {
+            mostrarDistribucionVehiculos();
+        }
+    }
+    public static void consultarVehiculosEnZona() {
+        String[] zonas = {"Lobby", "Aspirado", "Lavado", "Encerado", "Chasis", "Retiro"};
+        String zonaSeleccionada = (String) JOptionPane.showInputDialog(null, "Seleccione la zona:",
+                "Consultar Vehículos en Zona", JOptionPane.QUESTION_MESSAGE, null, zonas, zonas[0]);
+        Vehiculos[] zonaArray = obtenerArrayZona(zonaSeleccionada);
+        String reporte = "";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
-        
+        for (Vehiculos vehiculo : zonaArray) {
+            if (vehiculo != null) {
+                String fechaRecepcion = vehiculo.getFechaRecepcion().getDayOfMonth() + "/"
+                        + vehiculo.getFechaRecepcion().getMonthValue() + "/"
+                        + vehiculo.getFechaRecepcion().getYear() + " "
+                        + vehiculo.getFechaRecepcion().getHour() + ":"
+                        + vehiculo.getFechaRecepcion().getMinute() + ":"
+                        + vehiculo.getFechaRecepcion().getSecond();
+
+                reporte += "Nombre del Cliente: " + vehiculo.getNombreCliente() + "\n"
+                        + "Placa: " + vehiculo.getPlaca() + "\n"
+                        + "Marca: " + vehiculo.getMarca() + "\n"
+                        + "Color: " + vehiculo.getColor() + "\n"
+                        + "Paquete: " + vehiculo.getPaquete() + "\n"
+                        + "Fecha de Recepción: " + fechaRecepcion + "\n\n";
+            }
+        }
+        JOptionPane.showMessageDialog(null, reporte);
+    }
+
+    public static void mostrarDistribucionVehiculos() {
+        String distribucion = "";
+        distribucion += "Lobby: " + mostrarZona(lobby) + "\n";
+        distribucion += "Aspirado: " + mostrarZona(aspirado) + "\n";
+        distribucion += "Lavado: " + mostrarZona(lavado) + "\n";
+        distribucion += "Encerado: " + mostrarZona(encerado) + "\n";
+        distribucion += "Chasis: " + mostrarZona(chasis) + "\n";
+        distribucion += "Retiro: " + mostrarZona(retiro) + "\n";
+        JOptionPane.showMessageDialog(null, distribucion);
+    }
+    private static Vehiculos[] obtenerArrayZona(String zonaSeleccionada) {
+        switch (zonaSeleccionada) {
+            case "Lobby":
+                return lobby;
+            case "Aspirado":
+                return aspirado;
+            case "Lavado":
+                return lavado;
+            case "Encerado":
+                return encerado;
+            case "Chasis":
+                return chasis;
+            case "Retiro":
+                return retiro;
+            default:
+                return new Vehiculos[0];
+        }
+    }
+    private static String mostrarZona(Vehiculos[] zonaArray) {
+        String resultado = "";
+        for (Vehiculos vehiculo : zonaArray) {
+            if (vehiculo != null) {
+                switch (vehiculo.getPaquete()) {
+                    case "Básico":
+                        resultado += "[B]";
+                        break;
+                    case "Regular":
+                        resultado += "[R]";
+                        break;
+                    case "Premium":
+                        resultado += "[P]";
+                        break;
+                }
+            } else {
+                resultado += "[ ]";
+            }
+        }
+        return resultado;
     }
 
     public static void agregarVehiculo() {
