@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-jansqiuonsqionq askn oiqn qoisnaoin sqoinqoin qoinqso
+
 public class Prueba {
 
     public static Vehiculos[] lobby = new Vehiculos[8];
