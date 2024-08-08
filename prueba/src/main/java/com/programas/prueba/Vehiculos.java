@@ -11,7 +11,11 @@ public class Vehiculos {
     private String color;
     private String paquete;
     private LocalDateTime fechaRecepcion;
-    
+    private LocalDateTime fechaAspirado;
+    private LocalDateTime fechaLavado;
+    private LocalDateTime fechaEncerado;
+    private LocalDateTime fechaChasis;
+    private LocalDateTime fechaRetiro;
 
     public Vehiculos(String nombreCliente, String placa, String marca, String color, String paquete, LocalDateTime fechaRecepcion) {
         this.nombreCliente = nombreCliente;
@@ -79,5 +83,22 @@ public class Vehiculos {
                 + "Color: " + color + "\n"
                 + "Paquete: " + paquete + "\n"
                 + "Fecha de recepción: " + fechaRecepcionFormato;
+         if (fechaAspirado != null) {
+            resultado += "Fecha de Aspirado: " + fechaAspirado.format(formato) + "\n";
+        }
+        if (fechaLavado != null) {
+            resultado += "Fecha de Lavado: " + fechaLavado.format(formato) + "\n";
+        }
+        if (fechaEncerado != null) {
+            resultado += "Fecha de Encerado: " + fechaEncerado.format(formato) + "\n";
+        }
+        if (fechaChasis != null) {
+            resultado += "Fecha de Chasis: " + fechaChasis.format(formato) + "\n";
+        }
+        if (fechaRetiro != null) {
+            resultado += "Fecha de Retiro: " + fechaRetiro.format(formato) + "\n";
+        }
+
+        return resultado;
     }
 }
