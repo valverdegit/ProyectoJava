@@ -1,6 +1,5 @@
 
-package com.avance1;
-
+package com.programas.prueba;
 
 public class Factura {
 
